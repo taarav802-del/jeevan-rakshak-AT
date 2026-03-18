@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jeevan Rakshak UP</title>
+
+<style>
+body{
+font-family: Arial;
+margin:0;
+background:#f4f4f4;
+text-align:center;
+}
+
+header{
+background:#ff6f00;
+color:white;
+padding:20px;
+font-size:22px;
+}
+
+.tagline{
+font-size:14px;
+margin-top:5px;
+}
+
+.container{
+padding:15px;
+}
+
+button{
+width:90%;
+padding:16px;
+margin:10px;
+font-size:17px;
+border:none;
+border-radius:10px;
+background:#1976d2;
+color:white;
+}
+
+.emergency{
+background:red;
+font-size:20px;
+}
+
+.card{
+background:white;
+margin:10px;
+padding:15px;
+border-radius:10px;
+box-shadow:0 0 6px rgba(0,0,0,0.2);
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+🚑 Jeevan Rakshak UP
+<div class="tagline">Saving Lives Across Uttar Pradesh</div>
+</header>
+
+<div class="container">
+
+<button onclick="getLocation()">📍 Find Nearby Hospitals</button>
+
+<button onclick="showHospitals()">🏥 Quick Hospital List</button>
+
+<button onclick="showBlood()">🩸 Blood Availability</button>
+
+<a href="tel:108">
+<button class="emergency">🚨 Call Ambulance</button>
+</a>
+
+<div id="output"></div>
+
+</div>
+
+<script>
+
+function getLocation(){
+if(navigator.geolocation){
+navigator.geolocation.getCurrentPosition(showPosition);
+}else{
+alert("Location not supported");
+}
+}
+
+function showPosition(position){
+let lat = position.coords.latitude;
+let lon = position.coords.longitude;
+
+document.getElementById("output").innerHTML =
+`
+<div class="card">
+📍 Your Location:<br>
+Lat: ${lat}<br>
+Lon: ${lon}
+</div>
+
+<a href="https://www.google.com/maps/search/hospital/@${lat},${lon},15z" target="_blank">
+<button>🏥 View Nearby Hospitals</button>
+</a>
+`;
+}
+
+function showHospitals(){
+document.getElementById("output").innerHTML =
+`
+<div class="card">AIIMS Delhi<br>ICU Available</div>
+<div class="card">Yashoda Hospital Ghaziabad<br>Emergency Ready</div>
+<div class="card">Fortis Noida<br>24/7 Service</div>
+`;
+}
+
+function showBlood(){
+document.getElementById("output").innerHTML =
+`
+<div class="card">Red Cross Blood Bank<br>O+, A+</div>
+<div class="card">District Hospital Blood Bank<br>B+, AB+</div>
+`;
+}
+
+</script>
+
+</body>
+</html>
