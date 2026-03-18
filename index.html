@@ -24,6 +24,12 @@ font-size:14px;
 margin-top:5px;
 }
 
+.gov{
+font-size:12px;
+color:#006400;
+margin-top:5px;
+}
+
 .container{
 padding:15px;
 }
@@ -60,18 +66,23 @@ box-shadow:0 0 6px rgba(0,0,0,0.2);
 <header>
 🚑 Jeevan Rakshak UP
 <div class="tagline">Saving Lives Across Uttar Pradesh</div>
+<div class="gov">Government of Uttar Pradesh – Prototype</div>
 </header>
 
 <div class="container">
 
 <button onclick="getLocation()">📍 Find Nearby Hospitals</button>
 
-<button onclick="showHospitals()">🏥 Quick Hospital List</button>
+<button onclick="showHospitals()">🏥 UP Hospital List</button>
 
 <button onclick="showBlood()">🩸 Blood Availability</button>
 
+<button onclick="openMap()">🗺 View Live Hospital Map</button>
+
+<button class="emergency" onclick="sendSOS()">🚨 SOS Alert</button>
+
 <a href="tel:108">
-<button class="emergency">🚨 Call Ambulance</button>
+<button class="emergency">🚑 Call Ambulance (108)</button>
 </a>
 
 <div id="output"></div>
@@ -80,6 +91,7 @@ box-shadow:0 0 6px rgba(0,0,0,0.2);
 
 <script>
 
+// LOCATION FUNCTION
 function getLocation(){
 if(navigator.geolocation){
 navigator.geolocation.getCurrentPosition(showPosition);
@@ -106,21 +118,41 @@ Lon: ${lon}
 `;
 }
 
+// HOSPITAL LIST
 function showHospitals(){
 document.getElementById("output").innerHTML =
 `
-<div class="card">AIIMS Delhi<br>ICU Available</div>
-<div class="card">Yashoda Hospital Ghaziabad<br>Emergency Ready</div>
-<div class="card">Fortis Noida<br>24/7 Service</div>
+<div class="card">King George Medical University, Lucknow</div>
+<div class="card">SGPGI Lucknow</div>
+<div class="card">AIIMS Gorakhpur</div>
+<div class="card">District Hospital Noida</div>
 `;
 }
 
+// BLOOD DATA
 function showBlood(){
 document.getElementById("output").innerHTML =
 `
-<div class="card">Red Cross Blood Bank<br>O+, A+</div>
-<div class="card">District Hospital Blood Bank<br>B+, AB+</div>
+<div class="card">Red Cross Blood Bank<br>Available: O+, A+</div>
+<div class="card">District Hospital Blood Bank<br>Available: B+, AB+</div>
 `;
+}
+
+// MAP
+function openMap(){
+window.open("https://www.google.com/maps/search/hospital+near+me");
+}
+
+// SOS FUNCTION
+function sendSOS(){
+navigator.geolocation.getCurrentPosition(function(pos){
+let lat = pos.coords.latitude;
+let lon = pos.coords.longitude;
+
+let message = `EMERGENCY! I need help. My location: https://maps.google.com/?q=${lat},${lon}`;
+
+alert("SOS Message:\n" + message);
+});
 }
 
 </script>
