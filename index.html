@@ -57,6 +57,11 @@ padding:15px;
 border-radius:10px;
 box-shadow:0 0 6px rgba(0,0,0,0.2);
 }
+
+.card h3{
+margin:0 0 10px 0;
+color:#1976d2;
+}
 </style>
 
 </head>
@@ -125,10 +130,37 @@ Lon: ${lon}
 function showHospitals(){
 document.getElementById("output").innerHTML =
 `
-<div class="card">King George Medical University, Lucknow</div>
-<div class="card">SGPGI Lucknow</div>
-<div class="card">AIIMS Gorakhpur</div>
-<div class="card">District Hospital Noida</div>
+<div class="card">
+<h3>King George Medical University, Lucknow</h3>
+🛏 Total Beds: 1200<br>
+❤️ ICU Beds: 45<br>
+👶 NICU Beds: 20<br>
+Status: 🟢 Available
+</div>
+
+<div class="card">
+<h3>SGPGI Lucknow</h3>
+🛏 Total Beds: 900<br>
+❤️ ICU Beds: 60<br>
+👶 NICU Beds: 25<br>
+Status: 🟡 Limited Availability
+</div>
+
+<div class="card">
+<h3>AIIMS Gorakhpur</h3>
+🛏 Total Beds: 750<br>
+❤️ ICU Beds: 30<br>
+👶 NICU Beds: 15<br>
+Status: 🔴 Full
+</div>
+
+<div class="card">
+<h3>District Hospital Noida</h3>
+🛏 Total Beds: 500<br>
+❤️ ICU Beds: 20<br>
+👶 NICU Beds: 10<br>
+Status: 🟢 Available
+</div>
 `;
 }
 
