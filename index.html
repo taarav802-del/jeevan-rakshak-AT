@@ -93,6 +93,15 @@ color:#1976d2;
 <button onclick="startTracking()">📡 Start Live Tracking</button>
 <button onclick="stopTracking()">⛔ Stop Tracking</button>
 
+<button onclick="showUser()">👤 User Profile</button>
+<button onclick="showAppointment()">📅 Book Appointment</button>
+<button onclick="showDoctors()">🩺 Doctors</button>
+<button onclick="showAmbulance()">🚑 Ambulance</button>
+<button onclick="showPharmacy()">💊 Pharmacy</button>
+<button onclick="showEmergency()">🚨 Emergency Services</button>
+<button onclick="showAnalytics()">📊 Analytics</button>
+<button onclick="showAccessibility()">♿ Accessibility</button>
+
 <div id="output"></div>
 
 </div>
@@ -188,6 +197,83 @@ let message = `EMERGENCY! I need help. My location: https://maps.google.com/?q=$
 
 alert("SOS Message:\n" + message);
 });
+}
+
+// USER PROFILE
+function showUser(){
+  document.getElementById("output").innerHTML = `
+  <div class="card">
+    <h3>User Profile</h3>
+    Blood Group: O+<br>
+    Allergies: None<br>
+    Emergency Contact: 9876543210<br>
+    Medical History: Diabetes
+  </div>`;
+}
+
+// APPOINTMENT
+function showAppointment(){
+  document.getElementById("output").innerHTML = `
+  <div class="card">
+    <h3>Book Appointment</h3>
+    Doctor: Dr. Sharma (Cardiologist)<br>
+    Available: Today 5 PM<br>
+    <button>Book Now</button>
+  </div>`;
+}
+
+// DOCTORS
+function showDoctors(){
+  document.getElementById("output").innerHTML = `
+  <div class="card">Cardiologist - Available</div>
+  <div class="card">Pediatrician - Available</div>
+  <div class="card">Neurologist - Busy</div>
+  `;
+}
+
+// AMBULANCE
+function showAmbulance(){
+  document.getElementById("output").innerHTML = `
+  <div class="card">
+    Nearest Ambulance: 2 km away<br>
+    ETA: 6 minutes
+  </div>`;
+}
+
+// PHARMACY
+function showPharmacy(){
+  document.getElementById("output").innerHTML = `
+  <div class="card">
+    Apollo Pharmacy<br>
+    Medicine: Available<br>
+    Price: ₹120
+  </div>`;
+}
+
+// EMERGENCY SERVICES
+function showEmergency(){
+  document.getElementById("output").innerHTML = `
+  <div class="card">
+    Police Station: 2 km<br>
+    Fire Station: 3 km<br>
+    <button onclick="alert('Reporting Accident')">Report Accident</button>
+  </div>`;
+}
+
+// ANALYTICS
+function showAnalytics(){
+  document.getElementById("output").innerHTML = `
+  <div class="card">
+    Peak Hospital Time: 6 PM<br>
+    Bed Demand: High<br>
+    Emergency Cases: Increasing
+  </div>`;
+}
+
+// ACCESSIBILITY
+function showAccessibility(){
+  document.body.style.fontSize = "20px";
+  alert("Accessibility Mode Enabled");
 }
 
 </script>
